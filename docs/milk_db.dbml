@@ -1,0 +1,42 @@
+product_categories [icon: list, color: purple] {
+  id int pk "Unique category identifier"
+  category_name string "Name of milk product category (e.g., Fresh Milk, Infant Formula, Growing-up Milk)"
+  description text "Detailed description of the category"
+  image_url string "URL to category image"
+  created_at timestamp "Record creation timestamp"
+  updated_at timestamp "Record last update timestamp"
+}
+
+milk_brands [icon: building, color: purple] {
+  id int pk "Unique brand identifier"
+  brand_name string "Name of the milk brand (e.g., Dutch Lady, Vinamilk, Abbott)"
+  country_of_origin string "Country where the brand originates (e.g., Netherlands, Vietnam, USA)"
+  description text "Brand description and background"
+  market_position string "Brand's market segment (e.g., Budget, Mid-range, Premium)"
+  is_premium boolean "Flag indicating if brand is premium/high-end"
+  logo_url string "URL to brand logo"
+  created_at timestamp "Record creation timestamp"
+}
+
+milk_products [icon: package, color: purple] {
+  id int pk "Unique product identifier"
+  product_name string "Full product name (e.g., Dutch Lady Fresh Milk 1L)"
+  sku string "Stock Keeping Unit - unique product code"
+  category_id int fk "Reference to product_categories table"
+  brand_id int fk "Reference to milk_brands table"
+  package_size_ml int "Package size in milliliters"
+  age_range_from int "Minimum recommended age in months (0 for all ages)"
+  age_range_to int "Maximum recommended age in months (999 for no upper limit)"
+  price_per_unit decimal "Price per unit in VND (Vietnamese Dong)"
+  discount_percent int "Current discount percentage (0-100)"
+  stock_quantity int "Number of units currently in stock"
+  description text "Product description and benefits"
+  main_ingredients text "Key ingredients list"
+  image_url string "URL to product image"
+  is_active boolean "Flag to indicate if product is currently available for sale"
+  created_at timestamp "Record creation timestamp"
+  updated_at timestamp "Record last update timestamp"
+}
+
+milk_products.category_id > product_categories.id
+milk_products.brand_id > milk_brands.id
