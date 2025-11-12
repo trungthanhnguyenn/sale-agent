@@ -36,7 +36,7 @@ autosell-chatbot/
 │   │       └── gradio_app.py # Web interface
 │   └── utils/               # Utilities and loaders
 ├── data/sql/                # SQLite database
-└── start_all.py            # Service orchestrator
+└── docs/                    # Relationship diagram
 ```
 
 ## 🛠️ Installation
@@ -50,8 +50,8 @@ autosell-chatbot/
 
 1. **Clone the repository**
 ```bash
-git clone <repository-url>
-cd autosell-chatbot
+git clone https://github.com/trungthanhnguyenn/sale-agent.git
+cd sale-agent
 ```
 
 2. **Install dependencies**
